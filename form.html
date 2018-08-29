@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> form1 </title>
+<script>
+var date=newdate();
+var month=date.getmonth()+1;
+var day=date.getdate();
+var year=date.getfullyear();
+var output=month+'/'+day+'/'+year;
+function compareDate()
+{
+if(date.parse(document.form1.bookingdate.value)<date.parse(output))
+{alert("you cannot select a date less than than the current date");
+}
+}
+function checknum()
+{
+x=event.checknum()
+if((x>65&&x<=90||(x>=97&&x<=122))
+{
+alert(enter numeric value");
+document.form1.num.value='';
+}
+}
+function total()
+{
+if(document.form1.num.value>20)
+{alert("you cannot book more than 20 tickets at a time");
+document.form1.value.value='';
+}
+else
+document.form1.totalprice.value=(document.form1.price.value)*(document.form1.num.value);
+}
+function check()
+{
+for(i=0;i<=document.form1.RB.lenght;i++)
+{
+if(document.form1.RB[0].checked==true)
+{
+document.form1.price.value=100;
+}
+elseif(document.form1.RB[1].checked==true)
+{
+document.form1.price.value=140;
+}
+elseif(document.form1.RB[2].checked==true)
+{
+document.form1.price.value=200;
+}
+}
+}
+function sub()
+{
+if((document.form1.name.value!='')&&(document.form1.num.value!='')&&(Date.parse(document.form1.bookingdate.value)>Date.parse(output))
+&&(document.form1.sel.value!=0)&&(document.form1.timing.value!=7))
+{
+alert("your tickets have been booked.");
+}
+}
+function validate()
+{
+if((document.form1.sel.value==0)||(document.form1.num.value!='')||(Date.parse(document.form1.bookingdate.value)<Date.parse(output)))
+{
+alert("please select the date ,movie name, and movie timing");
+}
+else
+return true
+}
+</script>
+</head>
+<body>
+<form name="form1">
+<fieldset>
+<legend>Book your show</legend>
+<table>
+<tr>
+<td colspan="2">Book your show</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td><label for="name">name:</label></td>
+<td><input type="text"name="name"placeholder="enter your name" required autofocus></td>
+</tr>
+<tr>
+<td><label for="date" >date</label>
+<td><input type="date" id="bookingdate" name="date" required autofocus></td>
+onchange="compareDate();"
+</tr>
+<tr>
+<td><label for="movie">movie:</label></td>
+<td><input type="text"name="movie"placeholder="enter the name of the movie" required></td>
+</tr>
+<tr>
+<td><label for="show timings">show timings</label></td>
+<td><input type="time"name="time"required></td>
+</tr>
+<tr>
+<td><label for="gender">gender</label></td>
+<td>male:<input type="radio"name="gender">
+   female:<input type="radio"name="gender"></td>
+</tr>
+<tr>
+<td><label for="select class">select class</label>
+<td>gold:<input type="radio"name="RB">
+    platinum:<input type="radio"name="RB">
+    exclusive:<input type="radio"name="RB">
+onclick="check();"
+</tr>
+<tr>
+<td><label for="number of tickets">number of tickets</label></td>
+<td><input type="text" name="num" palceholder="enter tickets" required
+onchange="total();" onkeypress="checknum();"
+</tr>
+<tr>
+<td><label for="price">price</label></td>
+<td><input type="number"name="price"required disabled></td>
+</tr>
+<tr>
+<td><label for="movie and timing">movie and timing</label>
+<td rowspan="1">
+<select>
+<option name="select">twilight saga 9:30pm</option>
+<option name="select">housefull 3 8:30pm</option>
+<option name="select">angles  7:30pm</option>
+<option name="select">skyfall 6:30pm</option>
+</td>
+</tr>
+<tr>
+<td><input type="submit" value="submit">
+onclick="sub();"
+onsubmit="return validate();"
+<td><input type="reset" value="reset">
+</tr>
+</table>
+</fieldset>
+</form>
+</body>
+</html>
