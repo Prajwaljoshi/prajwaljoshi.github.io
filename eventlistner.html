@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+function onclick()
+{
+alert("a click event has occured on the submit button");
+}
+function addEventHandler()
+{
+var button=document.getElementById("button");
+if(button.addEventListener)
+{
+button.addEventListener("click",onclick,false);
+}
+}
+function removeEventHandler()
+{
+var button=document.getElementById("button");
+if(button.removeEventListener)
+{
+button.removeEventListener("click",onclick,false);
+}
+}
+</script>
+</head>
+<body>
+<br>
+<button onclick="addEventHandler();">add a click event listner to submit button</button>
+<button onclick="removeEventHandler();">remove the event listner</button>
+<br>
+<button id ="button">submit</button>
+</body>
+</html>
